@@ -16,7 +16,7 @@ const {products, searchstring} = props;
                         <tr key={product.id}>
                             <td> <img src={product.image_url}/></td>
                             <td>
-                                <p> {product.product_name} </p> 
+                                <p><b> {product.product_name} </b>  </p> 
                                 <p> {product.variants.length} variants </p>
                                 <p> Rs {min} - Rs {max} </p> 
                             </td>

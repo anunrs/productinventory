@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import ProductCard from "./ProductCard";
 
+
 function ProductList ({ products }) {
     
     const [searchstring, setSearchstring] = useState("");
@@ -14,7 +15,8 @@ function ProductList ({ products }) {
     return (
         <>
             <input
-                type="text"
+                
+                type="search"
                 placeholder="Search"
                 value={searchstring}
                 onChange={onChange}
@@ -22,6 +24,7 @@ function ProductList ({ products }) {
 
             <span>{products.length} items </span>
             <ProductCard products={products} searchstring={searchstring} />
+            
         </>
     );
 }
