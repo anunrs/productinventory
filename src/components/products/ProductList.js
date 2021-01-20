@@ -22,7 +22,7 @@ function ProductList ({ products }) {
                 onChange={onChange}
             /> <br/>
 
-            <span>{products.length} items </span>
+            <span>{products.filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i).length} items </span>
             <ProductCard products={products} searchstring={searchstring} />
             
         </>
