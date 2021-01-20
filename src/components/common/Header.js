@@ -1,12 +1,12 @@
 import React from "react";
 import StyledDiv from "../common/StyledDiv";
 
-const Header = () => {
+const Header = (props) => {
 
 
     return (
         <StyledDiv>
-            Browse Products
+            {props.text}
         </StyledDiv>
     )
 }
