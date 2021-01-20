@@ -1,6 +1,8 @@
 import React from "react";
 import Modal from "./../common/Modal.js";
+import "./ProductCard.css";
 const { useState, useEffect } = React;
+
 
 function ProductCard (props) {
     const {products, searchstring} = props;
@@ -15,6 +17,9 @@ function ProductCard (props) {
              <tbody>
          
                 {
+                    //1. consider only the first instance of every instance
+                    //2. filter by the user's input string (regex)
+                    //3. find the min & max price for each product
                 products.filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i).filter(product => product.product_name.match(new RegExp(searchstring, 'i'))).map(product => {    
                 let min = Math.min(...product.variants.map(item => item.price)); 
                 let max = Math.max(...product.variants.map(item => item.price)); 
@@ -29,8 +34,10 @@ function ProductCard (props) {
                                 <p> Rs {min} - Rs {max} </p> 
                                 
                                 <main>
-                                    {isModalOpen && <Modal onRequestClose={toggleModal} />}
-                                    
+                                    {isModalOpen && <Modal onRequestClose={toggleModal} name = {product.product_name} title = "Edit Product"/>}
+                                    <button onClick={toggleModal} type="button">
+                                        Edit
+                                    </button>
                                     
                                 </main>
                                 <div className="placeholder" />

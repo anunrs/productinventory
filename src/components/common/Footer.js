@@ -1,15 +1,23 @@
 import React, {useState} from "react";
 import StyledDiv from "../common/StyledDiv";
 import StyledButton from "../common/StyledButton";
-import {Redirect} from "react-router-dom";
+import Modal from "./Modal";
 
 const Footer = () => {
-    const [clicked, setClicked] = useState(0);
+    
+    const [isModalOpen, setModalIsOpen] = useState(false);
+
+
+    const toggleModal = () => {
+        setModalIsOpen(!isModalOpen);
+    };
+
 
     return (
         <StyledDiv>
-            <StyledButton onClick = { () => setClicked(1)}> Add new product </StyledButton>
-            {clicked ? <Redirect to = "/addproducts" /> : <></>}
+            <StyledButton onClick = {toggleModal}> Add new product </StyledButton>
+            {isModalOpen && <Modal onRequestClose={toggleModal} name = "" title = "Add Product"/>}
+
         </StyledDiv>
     )
 }

@@ -13,7 +13,7 @@ function ProductList ({ products }) {
     }
 
     return (
-        <>
+        <div>
             <input
                 
                 type="search"
@@ -25,7 +25,7 @@ function ProductList ({ products }) {
             <span>{products.filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i).length} items </span>
             <ProductCard products={products} searchstring={searchstring} />
             
-        </>
+        </div>
     );
 }
 

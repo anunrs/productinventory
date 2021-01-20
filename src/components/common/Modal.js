@@ -1,7 +1,12 @@
 import React from "react";
 const { useState, useEffect } = React;
 
-const Modal = ({ onRequestClose }) => {
+const Modal = (props) => {
+	const {onRequestClose, name, title} = props;
+
+	const [edited, setEdited] = useState(name);
+	
+
 	// Use useEffect to add an event listener to the document
 	useEffect(() => {
 		function onKeyDown(event) {
@@ -22,14 +27,13 @@ const Modal = ({ onRequestClose }) => {
 		};
 	});
 
+
 	return (
 		<div className="modal__backdrop">
 			<div className="modal__container">
-				<h3 className="modal__title">Edit Product</h3>
+				<h3 className="modal__title">{props.title}</h3>
 				
-				<p>
-					 Content
-                </p>
+				Product Name: <input type = "text" value = {edited} onChange = {(e) => setEdited(e.target.value)}/>
 				<button type="button" onClick={onRequestClose}>
 					Save
 				</button>

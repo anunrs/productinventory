@@ -5,9 +5,11 @@ const Header = (props) => {
 
 
     return (
+     
         <StyledDiv>
-            {props.text}
+            <p>{props.text}</p>
         </StyledDiv>
+     
     )
 }
 
